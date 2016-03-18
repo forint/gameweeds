@@ -35,7 +35,7 @@ $(".query").on('click',function(e){
             $.each( obj.items, function( key, value ) {
                 html += '<tr>';
                 html += '<td><div class="center"><img src="'+value.img+'" alt="'+value.title+'" /></div></td>';
-                html += '<td>'+value.title+'</td>';
+                html += '<td><a href="https://www.youtube.com/v/'+value.youtube_id+'" title="'+value.title+'">'+value.title+'</a></td>';
                 html += '<td>'+value.rating+'</td>';
                 html += '</tr>';
             });

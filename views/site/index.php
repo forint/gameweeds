@@ -71,9 +71,8 @@ $this->title = 'Technomatix exercise';
                                     [
                                         'attribute' => 'title',
                                         'format' => 'html',
-                                        'value'=> function($data) { return Html::tag('div', Html::a($data->title,'https://www.youtube.com/v/'.$data->youtube_id), array('class' => 'center')); }
+                                        'value'=> function($data) { return Html::tag('div', Html::a($data->title,'https://www.youtube.com/v/'.$data->youtube_id)); }
                                     ],
-                                    'title',
                                     'rating'
                                 ],
                                 'layout' => "{summary}\n{items}\n<div class='paginator_wrap'>{pager}</div>",
