@@ -58,8 +58,9 @@ class SiteController extends Controller{
     public function actionIndex()
     {
 
-        $model = new ParserForm();
+        $itemId = Yii::$app->request->get('itemId');
 
+        $model = new ParserForm();
         $dataProvider = new ArrayDataProvider([
             'id'=>'list',
             'allModels' => Query::find()->all(),
@@ -75,8 +76,12 @@ class SiteController extends Controller{
             $res = array();
 
             foreach ($queries as $value){
-
-                $value = strtolower($value);
+                $val = explode(' ',$value);
+                $arr = array();
+                foreach ($val as $v){
+                    $arr[] = ucfirst($v);
+                }
+                $value = implode(' ',$arr);
 
                 $previous = Query::find()
                     ->where(['query' => $value])
@@ -101,14 +106,21 @@ class SiteController extends Controller{
 
         }
 
-
-        $one = Query::find()->one();
+        if ($itemId){
+            $one = Query::find()->where(['id' => $itemId])->one();;
+        }else{
+            $one = Query::find()->one();
+        }
         if ($one){
             $result = Result::find()->where(['query_id' => $one->id]);
 
             $resultProvider = new ArrayDataProvider([
                 'id'=>'result',
-                'allModels' => $result->all()
+                'allModels' => $result->all(),
+                'pagination' => [
+                    'pageSize' => 5
+
+                ],
             ]);
 
             $count = $result->count();
@@ -239,6 +251,8 @@ class SiteController extends Controller{
     public function actionItems(){
 
         $post = Yii::$app->request->post();
+        $result_page = (isset($post['result-page']) && is_numeric($post['result-page']))?$post['result-page']:1;
+        $result_per_page = (isset($post['result-per-page']) && is_numeric($post['result-per-page']))?$post['result-per-page']:5;
 
         $query = Query::find()->where(['id' => $post['id']])->one();
         $name = $query->query;
@@ -246,7 +260,7 @@ class SiteController extends Controller{
         $result = Result::find()->where(['query_id' => $post['id']]);
         $count = $result->count();
         $sum = $result->average('rating');
-        $items = $result->asArray()->all();
+        $items = $result->asArray()->offset($result_page)->limit($result_per_page)->all();
 
         $response = array(
             'items'=>$items,

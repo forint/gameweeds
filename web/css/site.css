@@ -143,7 +143,6 @@ div.list-view {
     border-top:1px solid #000;
 }
 div.list-view a{
-    background: #5cb85c;
     color:#000;
     width:100%;
     display:block;
@@ -166,4 +165,7 @@ div.list-view ul{
 }
 div.list-view ul li{
     list-style-type: none;
+}
+div.paginator_wrap {
+    text-align:center;
 }

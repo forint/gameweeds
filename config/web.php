@@ -12,6 +12,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName'=>false,
             'rules' => [
+                '' => 'site/index',
                 '<action:login|about|contact|index>' => 'site/<action>'
             ]
         ],

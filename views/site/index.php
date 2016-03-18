@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 $this->title = 'Technomatix exercise';
 ?>
@@ -28,7 +29,7 @@ $this->title = 'Technomatix exercise';
     </div>
 
     <div class="body-content">
-
+        <?php if (isset($list)){ ?>
         <div class="row">
             <div class="row-height">
                 <div class="col-lg-2 col-height">
@@ -57,6 +58,7 @@ $this->title = 'Technomatix exercise';
                 <div class="col-lg-6 col-height" id="info">
                     <?php if (isset($result)){ ?>
                         <h2>Query info</h2>
+                        <?php Pjax::begin(); ?>
                         <?= GridView::widget([
                                 'dataProvider' => $result,
                                 'summary' => '',
@@ -69,11 +71,13 @@ $this->title = 'Technomatix exercise';
                                     'title',
                                     'rating'
                                 ],
+                                'layout' => "{summary}\n{items}\n<div class='paginator_wrap'>{pager}</div>",
                             ]) ?>
+                        <?php Pjax::end(); ?>
                     <?php } ?>
                 </div>
             </div>
         </div>
-
+        <?php } ?>
     </div>
 </div>
