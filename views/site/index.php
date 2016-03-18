@@ -64,9 +64,14 @@ $this->title = 'Technomatix exercise';
                                 'summary' => '',
                                 'columns' => [
                                     [
-                                        'attribute' => 'name',
+                                        'attribute' => 'Thumbnail',
                                         'format' => 'html',
                                         'value'=> function($data) { return Html::tag('div', Html::img($data->img), array('class' => 'center')); }
+                                    ],
+                                    [
+                                        'attribute' => 'title',
+                                        'format' => 'html',
+                                        'value'=> function($data) { return Html::tag('div', Html::a($data->title,'https://www.youtube.com/v/'.$data->youtube_id), array('class' => 'center')); }
                                     ],
                                     'title',
                                     'rating'

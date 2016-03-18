@@ -174,6 +174,7 @@ class SiteController extends Controller{
 
         foreach ($searchResponse['modelData']['items'] as $item => $video){
 
+
             if ($video['id']['videoId']){
 
                 $videoParams = array( 'id' => $video['id']['videoId'] );
