@@ -3,22 +3,28 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = 'Curriculum  Vitae';
 ?>
 <div class="site-cv">
 
     <h1 class="center">YURII KRALIA</h1>
+    <br />
+    <figure class="right">
+        <img class="forint" src="<?=Url::to('@web/img/forint.jpg')?>" alt="Forint"/>
+    </figure>
     <figure class="right">
     <p>Mayakovskogo avenue</br>
         Kiev – Kiev region</br>
         02232 – Ukraine</br>
         +380637257018</br>
-        <a href="" title="">yura.kralya@gmail.com</a></br>
+        <a href="mailto:yura.kralya@gmail.com" title="Yura Kralya">yura.kralya@gmail.com</a></br>
         08.08.1988</br>
         skype: forint6</br></p>
     </figure>
-    <hr class="clear">
+    <div class="clear"></div>
+    <br />
     <figure>
         <h1>Objective</h1>
         <p>Work in organization where I can utilize my skills and grow in web development world.</p>
