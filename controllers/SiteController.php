@@ -161,9 +161,6 @@ class SiteController extends Controller{
 
     private function getYoutubeResults($q,$id){
 
-        // include your composer dependencies
-        require_once '../vendor/autoload.php';
-
         $client = new \Google_Client();
         $client->setApplicationName("gameweeds.com");
         $client->setDeveloperKey($this->api_key);

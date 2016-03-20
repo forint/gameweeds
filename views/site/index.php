@@ -11,7 +11,7 @@ $this->title = 'Technomatix exercise';
 <div class="site-index">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-title">Find videos in YouTube</h1>
+            <h1 class="page-title">Find video in YouTube</h1>
             <div class="jumbotron">
 
                     <?php
