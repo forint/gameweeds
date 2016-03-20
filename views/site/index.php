@@ -10,21 +10,21 @@ $this->title = 'Technomatix exercise';
 ?>
 <div class="site-index">
     <div class="row">
-        <div class="col-lg-6 col-height">
+        <div class="col-lg-12">
+            <h1 class="page-title">Find videos in YouTube</h1>
             <div class="jumbotron">
-                <h1>Congratulations!</h1>
-                <p class="lead">You can use the Best Youtube Parser in the World by Yuri de Kralya</p>
+
+                    <?php
+                    $form = ActiveForm::begin();
+                    $model->query = 'adriano celentano, sting, pavarotti caruso, celine dion, michael jackson, johnny depp, angelina jolie';
+                    ?>
+                    <?= $form->field($model, 'query')->textInput()->label(false) ?>
+                    <div class="form-group">
+                        <?= Html::submitButton('Submit', ['class' => 'btn btn-warning']) ?>
+                    </div>
+                    <?php ActiveForm::end();
+                    ?>
             </div>
-        </div>
-        <div class="col-lg-6 col-height">
-            <?php
-            $form = ActiveForm::begin(); ?>
-            <?= $form->field($model, 'query') ?>
-            <div class="form-group">
-                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-            </div>
-            <?php ActiveForm::end();
-            ?>
         </div>
     </div>
 
@@ -62,6 +62,10 @@ $this->title = 'Technomatix exercise';
                         <?= GridView::widget([
                                 'dataProvider' => $result,
                                 'summary' => '',
+                                'showHeader' => '',
+                                'tableOptions' => [
+                                    'class' => 'table table-bordered'
+                                ],
                                 'columns' => [
                                     [
                                         'attribute' => 'Thumbnail',
@@ -71,11 +75,12 @@ $this->title = 'Technomatix exercise';
                                     [
                                         'attribute' => 'title',
                                         'format' => 'html',
-                                        'value'=> function($data) { return Html::tag('div', Html::a($data->title,'https://www.youtube.com/v/'.$data->youtube_id)); }
+                                        'value'=> function($data) { return Html::tag('div', Html::a($data->title,'https://www.youtube.com/v/'.$data->youtube_id)).Html::tag('p',$data->description); }
                                     ],
                                     'rating'
                                 ],
                                 'layout' => "{summary}\n{items}\n<div class='paginator_wrap'>{pager}</div>",
+
                             ]) ?>
                         <?php Pjax::end(); ?>
                     <?php } ?>

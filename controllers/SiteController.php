@@ -16,6 +16,10 @@ use yii\data\ArrayDataProvider;
 
 class SiteController extends Controller{
 
+    private $resultPage = 1;
+    private $resultPerPage = 5;
+    private $maxResults = 10;
+
     private $api_key = 'AIzaSyB8rc-UAQVTnRRlm5TA6whW84IFRPXM7Y4';
 
     public function behaviors()
@@ -118,7 +122,7 @@ class SiteController extends Controller{
                 'id'=>'result',
                 'allModels' => $result->all(),
                 'pagination' => [
-                    'pageSize' => 5
+                    'pageSize' => $this->resultPerPage
 
                 ],
             ]);
@@ -168,7 +172,7 @@ class SiteController extends Controller{
 
         $searchResponse = $youtube->search->listSearch('snippet', array(
             'q' => $q,
-            'maxResults' => 10,
+            'maxResults' => $this->maxResults,
             'type' => 'video'
         ));
 
@@ -240,9 +244,9 @@ class SiteController extends Controller{
         ]);
     }
 
-    public function actionAbout()
+    public function actionCv()
     {
-        return $this->render('about');
+        return $this->render('cv');
     }
 
     public function actionGrow($message = 'Grow with Yii Framework'){
@@ -252,8 +256,8 @@ class SiteController extends Controller{
     public function actionItems(){
 
         $post = Yii::$app->request->post();
-        $result_page = (isset($post['result-page']) && is_numeric($post['result-page']))?$post['result-page']:1;
-        $result_per_page = (isset($post['result-per-page']) && is_numeric($post['result-per-page']))?$post['result-per-page']:5;
+        $result_page = (isset($post['result-page']) && is_numeric($post['result-page']))?$post['result-page']:$this->resultPage;
+        $result_per_page = (isset($post['result-per-page']) && is_numeric($post['result-per-page']))?$post['result-per-page']:$this->resultPerPage;
 
         $query = Query::find()->where(['id' => $post['id']])->one();
         $name = $query->query;

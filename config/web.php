@@ -13,7 +13,7 @@ $config = [
             'showScriptName'=>false,
             'rules' => [
                 '' => 'site/index',
-                '<action:login|about|contact|index>' => 'site/<action>'
+                '<action:login|cv|contact|index>' => 'site/<action>'
             ]
         ],
         'request' => [

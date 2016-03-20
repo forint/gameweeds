@@ -13,7 +13,7 @@ use yii\base\Model;
 
 class ParserForm extends Model
 {
-    public $query;
+    public $query = 'asdas';
 
     public function rules()
     {

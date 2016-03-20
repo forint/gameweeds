@@ -4,14 +4,9 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
-/*print_r("<pre>");
-print_r(Url::home());
-print_r("</pre>");
-die();*/
+$this->title = 'Curriculum  Vitae';
 ?>
-<div class="site-about">
+<div class="site-cv">
 
     <h1 class="center">YURII KRALIA</h1>
     <figure class="right">
@@ -28,6 +23,7 @@ die();*/
         <h1>Objective</h1>
         <p>Work in organization where I can utilize my skills and grow in web development world.</p>
     </figure>
+    <hr>
     <figure>
         <h1>Skills</h1>
         <p>Html5, Css, Responsive design, Bootstrap, Smarty, Jade, Adobe Photoshop</p>
@@ -105,18 +101,19 @@ die();*/
         <p>Russian</p>
         <p>English(pre-intermediate)</p>
     </figure>
+    <hr>
     <figure>
         <h1>Portfolio</h1>
-        <p><a href="http://topone.com.ua" title="topone.com.ua">topone.com.ua</a></p>
-        <p><a href="http://luciano.com.ua" title="luciano.com.ua">luciano.com.ua</a></p>
-        <p><a href="http://shop.pektoral.com" title="shop.pektoral.com">shop.pektoral.com</a></p>
-        <p><a href="http://yaris-catering.com.ua" title="yaris-catering.com.ua">yaris-catering.com.ua</a></p>
-        <p><a href="http://garantpostach.com.ua" title="garantpostach.com.ua">garantpostach.com.ua</a></p>
-        <p><a href="http://bonne.in.ua" title="bonne.in.ua">bonne.in.ua</a></p>
-        <p><a href="http://shehappy.com.ua" title="shehappy.com.ua">shehappy.com.ua</a></p>
-        <p><a href="http://www.suicideispreventable.org" title="www.suicideispreventable.org">www.suicideispreventable.org</a></p>
-        <p><a href="http://wewantyourmotorbike.com" title="wewantyourmotorbike.com">wewantyourmotorbike.com</a></p>
-        <p><a href="http://miracleslots.net/" title="miracleslots.net">miracleslots.net</a></p>
+        <a href="http://topone.com.ua" title="topone.com.ua">topone.com.ua</a><br />
+        <a href="http://luciano.com.ua" title="luciano.com.ua">luciano.com.ua</a><br />
+        <a href="http://shop.pektoral.com" title="shop.pektoral.com">shop.pektoral.com</a><br />
+        <a href="http://yaris-catering.com.ua" title="yaris-catering.com.ua">yaris-catering.com.ua</a><br />
+        <a href="http://garantpostach.com.ua" title="garantpostach.com.ua">garantpostach.com.ua</a><br />
+        <a href="http://bonne.in.ua" title="bonne.in.ua">bonne.in.ua</a><br />
+        <a href="http://shehappy.com.ua" title="shehappy.com.ua">shehappy.com.ua</a><br />
+        <a href="http://www.suicideispreventable.org" title="www.suicideispreventable.org">www.suicideispreventable.org</a><br />
+        <a href="http://wewantyourmotorbike.com" title="wewantyourmotorbike.com">wewantyourmotorbike.com</a><br />
+        <a href="http://miracleslots.net/" title="miracleslots.net">miracleslots.net</a><br />
     </figure>
 
 </div>

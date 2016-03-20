@@ -1,14 +1,12 @@
 /**
  * Created by forint on 3/17/16.
  */
-
-
-$(".query").on('click',function(e){
-
-    e.preventDefault();
+$(".query").click(function (event) {
+    event.preventDefault();
 
     $(this).parent().parent().find('a').removeClass('active');
     $(this).addClass('active');
+
     var id = $(this).data('id');
     var url = $(this).data('href');
     var get_vars = parseUri(location.href);
@@ -16,7 +14,7 @@ $(".query").on('click',function(e){
     $.ajax({
         url: '/site/items',
         type: 'post',
-        data: { id: id , 'result-page' : get_vars.queryKey['result-page'], 'result-per-page' : get_vars.queryKey['result-per-page'] },
+        data: { id: id , 'result-page' : 1, 'result-per-page' : get_vars.queryKey['result-per-page'] },
         success: function (data) {
 
             var obj = jQuery.parseJSON(data);
