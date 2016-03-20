@@ -32,7 +32,7 @@ $this->title = 'Technomatix exercise';
         <?php if (isset($list)){ ?>
         <div class="row">
             <div class="row-height">
-                <div class="col-xs-12 col-lg-2 col-height">
+                <div class="col-xs-12 col-sm-2 col-lg-2 col-height">
                     <div class="widget">
                     <?php if (isset($list)){ ?>
                         <h2>Queries list</h2>
@@ -55,7 +55,7 @@ $this->title = 'Technomatix exercise';
                         <?php } ?>
                     </div>
                 </div>
-                <div class="col-xs-12 col-lg-6 col-height" id="info">
+                <div class="col-xs-12 col-sm-6 col-lg-6 col-height" id="info">
                     <?php if (isset($result)){ ?>
                         <h2>Query info</h2>
                         <?php Pjax::begin(); ?>

@@ -85,7 +85,7 @@ h1.page-title {
     margin:0;
 }
 .container .jumbotron div.field-parserform-query {
-    width: 88%;
+    width: 82%;
 }
 .container .jumbotron input {
     width:100%;
@@ -415,5 +415,17 @@ label.control-label {
         border-left:1px solid #000;
         border-right:1px solid #000;
         border-bottom:1px solid #000;
+    }
+}
+@media (min-width: 767px) and (max-width: 980px) {
+    h1.page-title {
+        font-size: 60px;
+        margin-top:20px;
+    }
+    .container .jumbotron div.field-parserform-query{
+        width: 82%;
+    }
+    .container .jumbotron {
+        margin-bottom: 100px;
     }
 }
