@@ -1,0 +1,288 @@
+body,html {
+    font: normal 12px/14px Arial;
+}
+div.game {
+    margin-top:40px;
+}
+div.backgammon {
+    position:relative;
+    width: 100%;
+    padding:0 20px;
+}
+div.backgammon > svg{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:2;
+}
+div.widget {
+    float:left;
+    width: 100%;
+    background:transparent;
+    border:0;
+    margin:0;
+}
+div.widget_game {
+    background: #222222;
+    margin-bottom: 20px;
+    border:1px solid #000;
+}
+div.widget_game span {
+    background: #000;
+    color: #fff;
+    font-size:13px;
+    padding: 8px 8px;
+    display:block;
+    text-align:center;
+}
+/* List games */
+ul.list_games{
+    list-style-type:none;
+    padding:0;
+    margin: 0;
+}
+ul.list_games li {
+    background: #222222;
+    color: #fff;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    border-bottom: 1px solid #000;
+}
+ul.list_games li:last-child {
+    border-bottom: 0;
+}
+ul.list_games li:hover {
+    background: #fff;
+    color: #000;
+}
+ul.list_games li span {
+    color: #fff;
+    font-size: 12px;
+    display:inline;
+    padding: 0px;
+    margin: 0px;
+}
+ul.list_games li a {
+    display:block;
+    padding:6px;
+    color: #9d9d9d;
+    text-decoration:none;
+}
+ul.list_games li:hover a {
+    color:#000;
+}
+/* End List games */
+
+/* Center Game Navigation */
+div.navigation{
+    position: absolute;
+    top:0;
+    width: 94%;
+    padding: 0 20px;
+}
+div.navigation.active{
+    top:-24px;
+}
+div.navigation ul{
+    list-style-type:none;
+    padding:0;
+    margin: 0;
+}
+div.navigation ul li{
+    float: left;
+    border: 1px solid #000;
+    margin-right: 20px;
+}
+div.navigation ul li.music{
+    position: relative;
+    overflow: hidden;
+    float: right;
+    color:#fff;
+    padding:0;
+    margin-right:0;
+    width: 42px;
+}
+div.navigation ul li.music a{
+    background: #333;
+    display:block;
+    width: 54px;
+    height: 24px;
+    padding: 0px 0px 0px 10px;
+}
+div.navigation ul li.music a:hover{
+    background: #000;
+}
+div.navigation ul li a{
+    background: #333;
+    display:block;
+    padding: 6px 12px;
+    color: #fff;
+    font: normal 12px/12px Arial;
+}
+div.navigation ul li a:hover {
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+}
+/* Center Game Navigation */
+
+/* игровое меню */
+div.game-popup {
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    text-align:center;
+    visibility: hidden;
+    opacity:0;
+    z-index: 3;
+}
+div.game-popup a.close_message_handler {
+    display:block;
+    width:20px;
+    height:20px;
+    background:url('/img/closer.png') no-repeat;
+    position:absolute;
+    top:5px;
+    right:5px;
+    z-index:10;
+}
+
+div.game-popup div.game-wrap{
+    height:240px;
+    width:342px;
+    margin: 240px auto 0;
+    background:#666666;
+    border:1px solid #000;
+    box-shadow: 1px 1px 3px #333;
+    display:inline-block;
+    vertical-align:middle;
+}
+div.game-popup div.game-wrap p.no_saves_results {
+    color:#ff0000;
+    width:100%;
+    height:100%;
+    display: inline;
+    font-family:Arial;
+    font-size:20px;
+    text-shadow: 1px 1px #ffffff;
+    line-height:30px;
+    text-align:center;
+}
+div.game-popup div.game-help{
+    display:inline-block;
+    vertical-align:middle;
+    height:100%;
+    width:0px;
+}
+div.game-popup div.inSavesTitle {
+    background:#000;
+    height:50px;
+    line-height:30px;
+    text-align: center;
+    font-family:Arial;
+    font-size:18px;
+    width:100%;
+    color:#fff;
+    margin-bottom:30px;
+}
+div.game-popup div.inSavesTitle span.new_font_margin {
+    display:block;
+    padding:12px 0px 12px 0px;
+}
+div.game-popup div.outer_link {
+    display:inline-block;
+    float:left;
+    width:50%;
+    text-align:center;
+}
+div.game-popup div.inner_link {
+    display:block;
+    width:120px;
+    height:auto;
+    margin:0 auto;
+}
+div.game-popup div.inner_link a{
+    position:relative;
+    cursor:url('/img/cursors/curs.cur'),auto;
+    display:block;
+    width:auto;
+    height:134px;
+    text-decoration:none;
+    outline:none;
+    border:1px solid #ccc;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-box-shadow: 0px 0px 7px  #000;
+    -webkit-box-shadow: 0px 0px  7px #000;
+    box-shadow: 0px 0px 7px  #000;
+
+}
+div.game-popup div.inner_link a:hover {
+    cursor:url('/img/cursors/ar.cur'),auto;
+    box-shadow: 0px 0px 2px  #ecff13;
+
+}
+div.game-popup div.inner_link a span {
+    position:absolute;
+    bottom:10px;
+    left:0px;
+    text-align:center;
+    width:100%;
+    height:auto;
+    font-family:Tahoma;
+    font-size:14px;
+    color:#fff;
+
+}
+a.play_left {
+    background:#000 url('/img/white_second.png') no-repeat 20px 7px;
+}
+a.play_right {
+    background:#fff url('/img/black_p_second.png') no-repeat 20px 7px;
+}
+a.play_left2 {
+    background:#000 url('/img/human_second.png') no-repeat 35px 7px;
+}
+a.play_right2 {
+    background:#fff url('/img/computer_second.png') no-repeat 20px 7px;
+}
+a.play_left3 {
+    background:#000 url('/img/pleasure_second.png') no-repeat 20px 30px;
+}
+a.play_right3 {
+    background:#fff url('/img/cash_second.png') no-repeat 20px 30px;
+}
+/* игровое меню */
+div.inSaves p {
+    margin-top:140px;
+    text-align: center;
+    color:#fff;
+    font-size:9pt;
+}
+div.inSaves,div.inSaves2 {
+    position:relative;
+    margin-top:60px;
+    width:100%;
+    height:340px;
+    border-radius: 0px 0px 8px 8px;
+    -moz-border-radius: 0px 0px 8px 8px;
+    -webkit-border-radius: 0px 0px 8px 8px;
+    overflow: auto;
+    z-index:11;
+}
+
+div.game-popup a.close_message_handler {
+    display:block;
+    width:20px;
+    height:20px;
+    background:url('/img/closer.png') no-repeat;
+    position:absolute;
+    top:5px;
+    right:5px;
+    z-index:10;
+}

@@ -37,9 +37,10 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Technomatix', 'url' => ['/site/index']],
-            ['label' => 'Curriculum  Vitae', 'url' => ['/site/cv']],
-            Yii::$app->user->isGuest ? (
+            ['label' => 'Youtube', 'url' => ['/site/index']],
+            ['label' => 'Backgammon', 'url' => ['/site/backgammon']],
+            ['label' => 'Curriculum  Vitae', 'url' => ['/site/cv']]
+            /*,Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
@@ -50,7 +51,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            )*/
         ],
     ]);
     NavBar::end();
@@ -73,6 +74,7 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+
 </body>
 </html>
 <?php $this->endPage() ?>

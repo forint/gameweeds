@@ -22,6 +22,53 @@ class SiteController extends Controller{
 
     private $api_key = 'AIzaSyB8rc-UAQVTnRRlm5TA6whW84IFRPXM7Y4';
 
+    private function getYoutubeResults($q,$id){
+
+        $client = new \Google_Client();
+        $client->setApplicationName("gameweeds.com");
+        $client->setDeveloperKey($this->api_key);
+
+        $youtube = new \Google_Service_YouTube($client);
+
+        $searchResponse = $youtube->search->listSearch('snippet', array(
+            'q' => $q,
+            'maxResults' => $this->maxResults,
+            'type' => 'video'
+        ));
+
+        foreach ($searchResponse['modelData']['items'] as $item => $video){
+
+
+            if ($video['id']['videoId']){
+
+                $videoParams = array( 'id' => $video['id']['videoId'] );
+                $results = $youtube->videos->listVideos('snippet,statistics',$videoParams);
+
+                $video_item = $results['items']['0']['modelData']['snippet'];
+                $video_stat = $results['items']['0']['modelData']['statistics'];
+
+                $previous = Result::find()
+                    ->where(['youtube_id' => $video['id']['videoId']])
+                    ->one();
+
+                $same = Result::find()
+                    ->where(['like', 'title', $video_item['title']])
+                    ->one();
+
+                if (!$previous && !$same){
+                    $result = new Result();
+                    $result->query_id = $id;
+                    $result->youtube_id = $video['id']['videoId'];
+                    $result->title = $video_item['title'];
+                    $result->description = $video_item['description'];
+                    $result->rating = $video_stat['viewCount'];
+                    $result->img = $video_item['thumbnails']['default']['url'];
+                    $result->save();
+                }
+            }
+        }
+    }
+
     public function behaviors()
     {
         return [
@@ -159,53 +206,6 @@ class SiteController extends Controller{
 
     }
 
-    private function getYoutubeResults($q,$id){
-
-        $client = new \Google_Client();
-        $client->setApplicationName("gameweeds.com");
-        $client->setDeveloperKey($this->api_key);
-
-        $youtube = new \Google_Service_YouTube($client);
-
-        $searchResponse = $youtube->search->listSearch('snippet', array(
-            'q' => $q,
-            'maxResults' => $this->maxResults,
-            'type' => 'video'
-        ));
-
-        foreach ($searchResponse['modelData']['items'] as $item => $video){
-
-
-            if ($video['id']['videoId']){
-
-                $videoParams = array( 'id' => $video['id']['videoId'] );
-                $results = $youtube->videos->listVideos('snippet,statistics',$videoParams);
-
-                $video_item = $results['items']['0']['modelData']['snippet'];
-                $video_stat = $results['items']['0']['modelData']['statistics'];
-
-                $previous = Result::find()
-                    ->where(['youtube_id' => $video['id']['videoId']])
-                    ->one();
-
-                $same = Result::find()
-                    ->where(['like', 'title', $video_item['title']])
-                    ->one();
-
-                if (!$previous && !$same){
-                    $result = new Result();
-                    $result->query_id = $id;
-                    $result->youtube_id = $video['id']['videoId'];
-                    $result->title = $video_item['title'];
-                    $result->description = $video_item['description'];
-                    $result->rating = $video_stat['viewCount'];
-                    $result->img = $video_item['thumbnails']['default']['url'];
-                    $result->save();
-                }
-            }
-        }
-    }
-
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
@@ -246,8 +246,8 @@ class SiteController extends Controller{
         return $this->render('cv');
     }
 
-    public function actionGrow($message = 'Grow with Yii Framework'){
-        return $this->render('grow', ['message' => $message]);
+    public function actionBackgammon(){
+        return $this->render('backgammon');
     }
 
     public function actionItems(){
@@ -275,6 +275,7 @@ class SiteController extends Controller{
         return json_encode($response);
 
     }
+
 
 }
 

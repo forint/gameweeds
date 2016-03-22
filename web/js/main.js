@@ -2,40 +2,6 @@
  * Created by forint on 3/17/16.
  */
 
-reverse("hello world");
-reverse("hello world");
-reverse("hello world");
-
-reverse("hello world");
-reverse("hello world");
-reverse("hello world");
-
-reverse("hello world");
-reverse("hello world");
-reverse("hello world");
-
-reverse("hello world");
-reverse("hello world");
-reverse("hello world");
-
-function reverse(str) {
-    // Your code here
-    console.log(arguments.callee.called++);
-    this.count++;
-
-    /*if (str.length > 0){
-        var last = str.substr(-1);
-        var str = str.slice(0, -1);
-        var newStr = last+str;
-        reverse.prototype.count++;
-        console.log(newStr);
-        console.log(str.length+' : '+reverse.prototype.count);
-        //reverse(newStr);
-    }else{
-        return str;
-    }*/
-}
-reverse.called = 0;
 $(".query").click(function (event) {
     event.preventDefault();
 

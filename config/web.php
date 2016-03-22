@@ -13,8 +13,14 @@ $config = [
             'showScriptName'=>false,
             'rules' => [
                 '' => 'site/index',
-                '<action:login|cv|contact|index>' => 'site/<action>'
+                '<action:login|cv|contact|index|backgammon>' => 'site/<action>'
             ]
+        ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'localhost',
+            'port' => 6379,
+            'database' => 0,
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

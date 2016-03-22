@@ -5,8 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-
-$this->title = 'Technomatix exercise';
+$this->title = 'Gameweeds';
 ?>
 <div class="site-index">
     <div class="row">

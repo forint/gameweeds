@@ -19,7 +19,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "google/apiclient": "^2.0.0@RC",
-        "beaten-sect0r/yii2-sypexdumper": "dev-master"
+        "yiisoft/yii2-redis": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

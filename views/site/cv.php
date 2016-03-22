@@ -37,7 +37,7 @@ $this->title = 'Curriculum  Vitae';
         <p>PHP, NodeJS, Socket.io, MySQL, OOP, PCRE, MVC</p>
         <p>Wordpress, Joomla, ModX, Silex, Laravel, RabbitMQ</p>
         <p>XML, YAML, Svn, Git, Apache, Nginx, Linux, Unix</p>
-    </figure>
+
     <hr >
     <figure>
         <h3>Bila Vorona, Kiev,Kiev region</h3>
