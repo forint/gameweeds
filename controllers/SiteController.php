@@ -250,6 +250,22 @@ class SiteController extends Controller{
         return $this->render('backgammon');
     }
 
+    public function actionSecret(){
+        if (!\Yii::$app->user->isGuest) {
+            return $this->render('secret');
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        }
+        return $this->render('secret', [
+            'model' => $model,
+        ]);
+    }
+    public function actionBlog(){
+        return $this->render('blog');
+    }
     public function actionItems(){
 
         $post = Yii::$app->request->post();

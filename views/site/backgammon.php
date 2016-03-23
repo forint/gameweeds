@@ -5,8 +5,6 @@
  * Date: 3/16/16
  * Time: 5:42 PM
  */
-use yii\helpers\Html;
-
 $this->registerCssFile('/css/backgammon.css');
 $this->registerJsFile('/js/raphael.js', ['depends' => [yii\web\JqueryAsset::className()]]);
 $this->registerJsFile('/js/backgammon.js', ['depends' => [yii\web\JqueryAsset::className()]]);

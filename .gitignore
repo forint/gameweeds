@@ -1,4 +1,9 @@
 # phpstorm project files
+/web
+/backgammon
+/config
+/runtime
+/web/img/
 .idea
 
 # netbeans project files

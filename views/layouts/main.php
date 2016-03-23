@@ -39,10 +39,12 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Youtube', 'url' => ['/site/index']],
             ['label' => 'Backgammon', 'url' => ['/site/backgammon']],
-            ['label' => 'Curriculum  Vitae', 'url' => ['/site/cv']]
-            /*,Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
+            ['label' => 'Blog', 'url' => ['/site/blog']],
+            ['label' => 'Secret', 'url' => ['/site/secret']],
+            /*Yii::$app->user->isGuest ? (['label' => 'Blog', 'url' => ['/site/blog']]) : (['label' => 'Blog', 'url' => ['/site/blog']]),*/
+
+            ['label' => 'Curriculum  Vitae', 'url' => ['/site/cv']],
+            /*Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
@@ -52,7 +54,7 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
             )*/
-        ],
+        ]
     ]);
     NavBar::end();
     ?>

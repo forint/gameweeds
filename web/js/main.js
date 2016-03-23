@@ -8,6 +8,10 @@ $(".query").click(function (event) {
     $(this).parent().parent().find('a').removeClass('active');
     $(this).addClass('active');
 
+    var $wrap = $("#w4");
+    var $table = $wrap.children('table');
+    var $tbody = $table.children('tbody');
+
     var id = $(this).data('id');
     var url = $(this).data('href');
     var get_vars = parseUri(location.href);
@@ -16,20 +20,20 @@ $(".query").click(function (event) {
         url: '/site/items',
         type: 'post',
         data: { id: id , 'result-page' : 1, 'result-per-page' : get_vars.queryKey['result-per-page'] },
+        beforeSend: function(){
+            $wrap.append("<div class='preload'><img src='/img/youtube_preload.png' alt='Waiting' /></div>");
+        },
         success: function (data) {
 
             var obj = jQuery.parseJSON(data);
-
+            $(".preload").remove();
             var html = '<ul>';
             $.each( obj.rating, function( key, value ) {
                 html += '<li>'+key.ucFirst()+': '+value+'</li>';
             });
             html += '</ul>';
-
             $("#w2").html(html);
 
-            var $table = $("#w4").children('table');
-            var $tbody = $table.children('tbody');
             html = '';
             $.each( obj.items, function( key, value ) {
                 html += '<tr>';
@@ -38,7 +42,10 @@ $(".query").click(function (event) {
                 html += '<td>'+value.rating+'</td>';
                 html += '</tr>';
             });
-            $tbody.html('').append(html);
+            $tbody.html(html);
+            $('html,body').scrollTo('#w3');
+            /*var pjax_id = $table.closest('.pjax-wrapper').attr('id');
+            $.pjax.reload({container:'#' + pjax_id});*/
         }
 
     });

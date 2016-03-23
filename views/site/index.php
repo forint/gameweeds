@@ -5,7 +5,9 @@ use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 $this->title = 'Gameweeds';
+$this->registerJsFile('/js/jquery.scrollTo.js', ['depends' => [yii\web\JqueryAsset::className()]]);
 ?>
 <div class="site-index">
     <div class="row">
@@ -57,8 +59,15 @@ $this->title = 'Gameweeds';
                 <div class="col-xs-12 col-sm-6 col-lg-6 col-height" id="info">
                     <?php if (isset($result)){ ?>
                         <h2>Query info</h2>
+                        <?php
+                        /*print_R("<pre>");
+                        print_R($result->id);
+                        print_R("</pre>");
+                        die();*/
+                        ?>
                         <?php Pjax::begin(); ?>
                         <?= GridView::widget([
+                                'rowOptions' => ['id' => $result->id],
                                 'dataProvider' => $result,
                                 'summary' => '',
                                 'showHeader' => '',
